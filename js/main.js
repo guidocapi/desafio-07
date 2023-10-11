@@ -1,7 +1,6 @@
 let titulo = document.querySelector("title");
 console.log(titulo.innerHTML);
 
-let integrante = document.querySelectorAll("dl")
 let nombreCompleto = document.querySelectorAll("dd")
 
 let nombre1 = nombreCompleto[0]
@@ -9,29 +8,76 @@ let nombre2 = nombreCompleto[1]
 let nombre3 = nombreCompleto[2]
 let nombre4 = nombreCompleto[3]
 
-let imprimirNombre1 = nombre1.innerHTML + " " + nombre2.innerHTML + " " + nombre3.innerHTML.toUpperCase() + " " + nombre4.innerHTML.toUpperCase();
-
-
 let nombre5 = nombreCompleto[4]
 let nombre6 = nombreCompleto[5]
 let nombre7 = nombreCompleto[6]
 let nombre8 = nombreCompleto[7]
 
-let imprimirNombre2 = nombre5.innerHTML + " " + nombre6.innerHTML + " " + nombre7.innerHTML.toUpperCase() + " " + nombre8.innerHTML.toUpperCase();
+let imprimirNombre1 = nombre1.innerText + " " + nombre2.innerText + " " + nombre3.innerText.toUpperCase() + " " + nombre4.innerText.toUpperCase() + " ";
+imprimirNombre1 = imprimirNombre1.replace("  ", " ")
 
-for (let i = 1; i <= integrante.length; i++) {
-    if (i % 2 === 1) {
-        imprimirNombre = imprimirNombre1;
-    } else {
-        imprimirNombre = imprimirNombre2;
-    }
-    console.log("Integrante " + i + ": " + imprimirNombre);
-}
+let imprimirNombre2 = nombre5.innerText + " " + nombre6.innerText + " " + nombre7.innerText.toUpperCase() + " " + nombre8.innerText.toUpperCase() + " ";
+imprimirNombre2 = imprimirNombre2.replace("  ", " ")
 
-if ((nombre1 == nombre5 || nombre1 == nombre6) || (nombre2 == nombre5 || nombre2 == nombre6)) {
+console.log("-----\nIntegrante 1: " + imprimirNombre1.trim() + "\nIntegrante 2: " + imprimirNombre2.trim() + "\n-----")
+
+if (nombre1.innerText == nombre5.innerText) {
     console.log("Hubo coincidencia");
+    let color = prompt("Color");
+    nombre1.style.color = color
+    nombre5.style.color = color
 } else {
-    console.log("No hubo coincidencia");
+    if (nombre1.innerText == nombre6.innerText) {
+        console.log("Hubo coincidencia");
+        let color = prompt("Color");
+        nombre1.style.color = color
+        nombre6.style.color = color
+    } else {
+        if (nombre2.innerText == nombre5.innerText) {
+            console.log("Hubo coincidencia");
+            let color = prompt("Color");
+            nombre2.style.color = color
+            nombre5.style.color = color
+        } else {
+            if (nombre2.innerText == nombre6.innerText && nombre2.innerText != "") {
+                console.log("Hubo coincidencia");
+                let color = prompt("Color");
+                nombre2.style.color = color
+                nombre6.style.color = color
+            } else { console.log("No hubo coincidencia"); }
+        }
+    }
+
 }
 
-// Hasta aca llegamos, sabemos que tiene errores pero no encontramos otra forma y teniendo en cuenta que las proximas instrucciones del ejercicio se basan en lo anterior dejamos el codigo hasta aca.
+let compape = window.confirm("¿Comparar apellidos?");
+if (compape == true) {
+    if ((nombre3.innerText == nombre7.innerText)) {
+        console.log("Hubo coincidencia");
+        let color = prompt("Color");
+        nombre3.style.color = color
+        nombre7.style.color = color
+    } else {
+        if (nombre3.innerText == nombre8.innerText) {
+            console.log("Hubo coincidencia");
+            let color = prompt("Color");
+            nombre3.style.color = color
+            nombre8.style.color = color
+        } else {
+            if (nombre4.innerText == nombre7.innerText) {
+                console.log("Hubo coincidencia");
+                let color = prompt("Color");
+                nombre4.style.color = color
+                nombre7.style.color = color
+            } else {
+                if (nombre4.innerText == nombre8.innerText && nombre4.innerText != "") {
+                    console.log("Hubo coincidencia");
+                    let color = prompt("Color");
+                    nombre4.style.color = color
+                    nombre8.style.color = color
+                } else { console.log("No hubo coincidencia"); }
+            }
+        }
+
+    }
+}
